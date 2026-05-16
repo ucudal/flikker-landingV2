@@ -37,7 +37,7 @@ const whatsappButton = cva(
           "border-2 border-whatsapp text-whatsapp bg-transparent rounded-full px-6 py-3 text-base hover:bg-whatsapp hover:text-white",
         nav: "bg-whatsapp text-white rounded-full px-4 py-2 text-sm min-h-[40px] hover:bg-whatsapp-hover",
         floating:
-          "fixed bottom-6 right-6 z-50 md:hidden bg-whatsapp text-white rounded-full w-14 h-14 shadow-lg hover:bg-whatsapp-hover hover:shadow-xl active:scale-95",
+          "fixed bottom-6 right-6 z-50 bg-whatsapp text-white rounded-full w-14 h-14 shadow-lg hover:bg-whatsapp-hover hover:shadow-xl active:scale-95",
       },
       size: {
         default: "",

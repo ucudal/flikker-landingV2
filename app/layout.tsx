@@ -1,20 +1,13 @@
 import type { Metadata } from "next";
-import { Syne, Manrope } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import Script from "next/script";
 
 import "./globals.css";
 
-const syne = Syne({
-  variable: "--font-syne",
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
   subsets: ["latin"],
-  weight: ["600", "700", "800"],
-  display: "swap",
-});
-
-const manrope = Manrope({
-  variable: "--font-manrope",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -111,9 +104,9 @@ export default function RootLayout({
     <html
       lang="es"
       data-scroll-behavior="smooth"
-      className={`${syne.variable} ${manrope.variable} h-full antialiased`}
+      className={`${jakarta.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-mist font-body text-midnight">
+      <body className="flex min-h-full flex-col bg-white font-body text-midnight">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -10,8 +10,8 @@
   --color-whatsapp-hover: #1fb558;
 
   /* Fonts — wired to next/font variables set on <html> */
-  --font-display: var(--font-syne);
-  --font-body: var(--font-manrope);
+  --font-display: var(--font-jakarta);
+  --font-body: var(--font-jakarta);
 
   /* Mobile-first type scale (brief v1.1, section 03)
      Desktop ramps up with responsive utilities in components. */
@@ -63,6 +63,7 @@
 
 :root {
   color-scheme: light;
+  font-size: 17px;
 }
 
 body {

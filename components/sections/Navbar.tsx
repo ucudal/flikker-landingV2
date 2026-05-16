@@ -1,67 +1,67 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 import { Logo } from "@/components/ui/Logo";
-import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
-import { NAV_LINKS, WHATSAPP_MESSAGES } from "@/lib/constants";
+import { NAV_LINKS, WHATSAPP_MESSAGES, buildWhatsAppUrl, CALENDLY_URL } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
   const scrolled = useScrolled(20);
 
   return (
-    <header
-      className={cn(
-        "sticky top-0 z-40 w-full transition-colors duration-200",
-        scrolled
-          ? "bg-mist/80 backdrop-blur-md border-b border-midnight/5"
-          : "bg-mist/80"
-      )}
-    >
+    <div className="fixed top-0 inset-x-0 z-40 px-4 pt-3">
       <nav
         aria-label="Principal"
-        className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-8"
+        className={cn(
+          "mx-auto max-w-5xl rounded-2xl border px-6 transition-all duration-200",
+          scrolled
+            ? "border-midnight/10 bg-white/90 shadow-md backdrop-blur-md"
+            : "border-white/40 bg-transparent shadow-sm backdrop-blur-md backdrop-saturate-200"
+        )}
       >
-        <a
-          href="#top"
-          aria-label="Flikker — Ir al inicio"
-          className="flex items-center rounded-sm transition-colors hover:text-periwinkle focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-periwinkle"
-        >
-          <Logo
-            variant="wordmark"
-            className="h-8 w-auto text-midnight md:h-10"
-          />
-        </a>
+        <div className="flex h-16 items-center justify-between">
+          <a
+            href="#top"
+            aria-label="Flikker — Ir al inicio"
+            className="flex items-center rounded-sm transition-opacity hover:opacity-75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-periwinkle"
+          >
+            <Logo variant="wordmark" className="h-7 w-auto" />
+          </a>
 
-        <ul className="hidden md:flex items-center gap-8">
-          {NAV_LINKS.map(({ label, href }) => (
-            <li key={href}>
-              <a
-                href={href}
-                className={cn(
-                  "inline-flex min-h-[44px] items-center rounded-sm px-1 text-sm font-medium transition-colors hover:text-periwinkle",
-                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-periwinkle focus-visible:ring-offset-2",
-                  scrolled
-                    ? "text-midnight focus-visible:ring-offset-mist"
-                    : "text-midnight focus-visible:ring-offset-mist"
-                )}
+          <ul className="hidden md:flex items-center gap-8">
+            {NAV_LINKS.map(({ label, href }) => (
+              <li key={href}>
+                <a
+                  href={href}
+                  className="inline-flex min-h-[44px] items-center px-1 text-sm font-semibold text-neutral-500 tracking-wide transition-colors hover:text-neutral-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-periwinkle rounded-sm"
+                >
+                  {label}
+                </a>
+              </li>
+            ))}
+            <li>
+              <Link
+                href="/blog"
+                className="inline-flex min-h-[44px] items-center px-1 text-sm font-semibold text-neutral-500 tracking-wide transition-colors hover:text-neutral-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-periwinkle rounded-sm"
               >
-                {label}
-              </a>
+                Blog
+              </Link>
             </li>
-          ))}
-        </ul>
+          </ul>
 
-        <WhatsAppButton
-          variant="nav"
-          message={WHATSAPP_MESSAGES.nav}
-          label="Hablar por WhatsApp"
-        >
-          WhatsApp
-        </WhatsAppButton>
+          <a
+            href={CALENDLY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-[38px] items-center justify-center rounded-full bg-periwinkle px-5 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(145,136,245,0.5)] transition-all hover:bg-periwinkle/85 hover:shadow-[0_4px_18px_rgba(145,136,245,0.65)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-periwinkle focus-visible:ring-offset-2"
+          >
+            Agendar Demo
+          </a>
+        </div>
       </nav>
-    </header>
+    </div>
   );
 }
 

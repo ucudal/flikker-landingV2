@@ -7,6 +7,8 @@
 
 export const WHATSAPP_NUMBER = "59891624988";
 
+export const CALENDLY_URL = "https://calendly.com/fabrizio-rodriguez7274/30min";
+
 type WhatsAppMessageKey =
   | "nav"
   | "hero"

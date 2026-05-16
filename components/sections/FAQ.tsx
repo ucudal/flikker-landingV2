@@ -28,7 +28,7 @@ const faqs: { q: string; a: ReactNode }[] = [
           tampoco tenés tu ficha de Google Business Profile, también te ayudamos
           a dejarla pronta durante el setup.
         </p>
-        <p className="text-sm text-midnight/60">* Por un precio aparte.</p>
+        <p className="text-sm text-neutral-400">* Por un precio aparte.</p>
       </div>
     ),
   },
@@ -61,24 +61,48 @@ export function FAQ() {
   return (
     <section
       id="faq"
-      className="scroll-mt-20 bg-mist px-6 py-24 text-midnight md:px-8 md:py-32"
+      className="scroll-mt-20 bg-[#f4f4f6] px-6 py-24 md:px-8 md:py-32"
     >
-      <div className="mx-auto max-w-3xl">
-        <h2 className="font-display text-[32px] font-bold leading-[1.1] tracking-[-0.02em] md:text-[48px]">
-          Dudas comunes.
-        </h2>
+      <div className="mx-auto grid max-w-6xl grid-cols-1 items-start gap-12 lg:grid-cols-[1fr_1.7fr] lg:gap-20">
 
+        {/* Left — header */}
+        <div className="lg:sticky lg:top-28">
+          <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-periwinkle">
+            Soporte
+          </span>
+          <h2 className="font-display mt-3 text-[30px] font-black leading-[1.1] tracking-[-0.02em] text-neutral-900 md:text-[38px]">
+            Preguntas frecuentes sobre Flikker
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-neutral-500">
+            Todo lo que necesitás saber antes de empezar.{" "}
+            <a
+              href={`https://wa.me/`}
+              className="font-medium text-periwinkle hover:underline"
+            >
+              Escribinos →
+            </a>
+          </p>
+        </div>
+
+        {/* Right — accordion */}
         <Accordion
           type="single"
           collapsible
-          defaultValue="faq-0"
           onValueChange={handleOpenChange}
-          className="mt-12 w-full"
+          className="flex flex-col gap-2"
         >
           {faqs.map((item, i) => (
-            <AccordionItem key={item.q} value={`faq-${i}`}>
-              <AccordionTrigger>{item.q}</AccordionTrigger>
-              <AccordionContent>{item.a}</AccordionContent>
+            <AccordionItem
+              key={item.q}
+              value={`faq-${i}`}
+              className="rounded-2xl border border-neutral-200 bg-white px-5"
+            >
+              <AccordionTrigger className="text-[15px] font-semibold text-neutral-900 hover:text-neutral-900 [&>svg]:text-neutral-400">
+                {item.q}
+              </AccordionTrigger>
+              <AccordionContent className="text-[15px] text-neutral-500">
+                {item.a}
+              </AccordionContent>
             </AccordionItem>
           ))}
         </Accordion>

@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e \"const lr = require\\('./node_modules/lucide-react'\\); const keys = Object.keys\\(lr\\).filter\\(k => k.toLowerCase\\(\\).includes\\('instagram'\\) || k.toLowerCase\\(\\).includes\\('linkedin'\\)\\); console.log\\(keys\\)\")",
+      "Bash(node -e \"const lr = require\\('./node_modules/lucide-react'\\); console.log\\(Object.keys\\(lr\\).filter\\(k => /^[A-Z]/.test\\(k\\)\\).slice\\(0, 50\\)\\)\")",
+      "Bash(node -e ' *)"
+    ]
+  }
+}

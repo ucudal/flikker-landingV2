@@ -66,7 +66,7 @@ export function Features() {
           <span className="text-[12px] font-semibold uppercase tracking-[0.18em] text-periwinkle">
             Qué incluye
           </span>
-          <h2 className="font-display mt-4 max-w-3xl text-[32px] font-bold leading-[1.1] tracking-[-0.02em] md:text-[48px]">
+          <h2 className="font-display mt-4 max-w-3xl text-[32px] font-black leading-[1.1] tracking-[-0.02em] md:text-[48px]">
             Todo lo que necesitás.
             <br />
             Nada de lo que sobra.
